@@ -131,6 +131,46 @@ Cursor supports four rule-application modes: **Always** (`alwaysApply: true`), *
 
 ---
 
+## Antigravity (Gemini IDE)
+
+**First-class plugin host.** Antigravity natively reads `plugin.json` manifests at the root of a plugin directory and can auto-invoke skills just like Claude Code and Cursor.
+
+Install the LID plugins using the one-line installation script. This will clone the repository to an OS-aware app data directory (`~/Library/Application Support/lid` on Mac, or `~/.local/share/lid` on Linux) and set up the necessary symlinks automatically:
+
+**For Mac and Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/jszmajda/lid/main/scripts/install-antigravity.sh | bash
+```
+
+**For Windows (PowerShell):**
+```powershell
+Invoke-RestMethod https://raw.githubusercontent.com/jszmajda/lid/main/scripts/install-antigravity.ps1 | Invoke-Expression
+```
+
+### Alternative: Manual Installation
+
+If you prefer not to run the automated scripts, you can manually clone the repository and create the links yourself:
+
+**For Mac and Linux:**
+```bash
+git clone https://github.com/jszmajda/lid ~/.local/share/lid
+ln -s ~/.local/share/lid/plugins/linked-intent-dev ~/.gemini/config/plugins/linked-intent-dev
+ln -s ~/.local/share/lid/plugins/arrow-maintenance ~/.gemini/config/plugins/arrow-maintenance
+ln -s ~/.local/share/lid/plugins/lid-experimental ~/.gemini/config/plugins/lid-experimental
+```
+
+**For Windows (PowerShell):**
+```powershell
+git clone https://github.com/jszmajda/lid "$env:LOCALAPPDATA\lid"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\linked-intent-dev" -Target "$env:LOCALAPPDATA\lid\plugins\linked-intent-dev"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\arrow-maintenance" -Target "$env:LOCALAPPDATA\lid\plugins\arrow-maintenance"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\lid-experimental" -Target "$env:LOCALAPPDATA\lid\plugins\lid-experimental"
+```
+
+Because Antigravity reads `AGENTS.md` natively through prompt integration and also fully supports the plugins, no additional adapter files are needed.
+
+---
+
 ## Windsurf
 
 Windsurf's Cascade rules engine treats a root-level `AGENTS.md` as an always-on rule automatically — if your project has one, Windsurf is covered. A tool-specific adapter is only useful when you want glob-scoped rules or a Windsurf-scoped variant.

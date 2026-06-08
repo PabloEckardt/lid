@@ -7,21 +7,21 @@ Project instructions for coding agents working in this repository. The file is n
 This is the **Linked-Intent Development (LID)** project — a methodology for keeping intent and code coherent in agentic codebases. The repo ships:
 
 - The methodology itself (this document plus `docs/`).
-- **Two Claude Code plugins** under `plugins/` — richest integration, with auto-invoking skills and slash commands.
-- Rule-file adapters for other agentic coding tools (Cursor, Windsurf, GitHub Copilot, Aider, Continue, JetBrains Junie, Zed, Codex, and any tool that reads `AGENTS.md`). See `docs/setup.md` for per-tool setup.
+- **Plugins** under `plugins/` for Claude Code, Cursor, and Antigravity (Gemini IDE) — richest integration, with auto-invoking skills and slash commands.
+- Rule-file adapters for other agentic coding tools (Windsurf, GitHub Copilot, Aider, Continue, JetBrains Junie, Zed, Codex, and any tool that reads `AGENTS.md`). See `docs/setup.md` for per-tool setup.
 
 There is no build system, test suite, or application code. The repo is simultaneously the distribution source for the plugins and the canonical LID-on-LID reference — its own `docs/` tree is LID applied to LID.
 
 ## Structure
 
-- **`plugins/`**: Two installable Claude Code plugins
+- **`plugins/`**: Installable plugins for Claude Code, Cursor, and Antigravity
   - **`linked-intent-dev/`**: Core LID workflow skill (`/linked-intent-dev`), configuration skill (`/update-lid`), and principle-review coach (`/lid-coach`)
   - **`arrow-maintenance/`**: Arrow tracking overlay + `/map-codebase` command for brownfield bootstrap
 - **`.claude-plugin/marketplace.json`**: Claude Code plugin manifest (technical file — users install via `/plugin marketplace add jszmajda/lid`)
 - **`docs/setup.md`**: Per-tool setup instructions for non-Claude-Code agents
 - **`docs/`**: The HLD, LLDs, and EARS specs that define the project
 
-## Plugin Architecture (Claude Code)
+## Plugin Architecture (Claude Code, Cursor, Antigravity)
 
 Users install via:
 
