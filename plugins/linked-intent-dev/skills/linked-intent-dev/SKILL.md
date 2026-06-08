@@ -9,7 +9,11 @@ This skill guides a structured linked-intent development workflow. LID's goal is
 
 ## Three rules govern every phase
 
-**Stop and iterate at every phase boundary.** After completing each phase below, present the output to the user, incorporate numbered feedback, and proceed only on explicit approval. Each stop is mandatory. Skipping stops is the single most common way this workflow degrades into a rush — the discipline is non-optional. (Carveout: command-mode skills that execute a single directed pass, like `/arrow-maintenance`'s audit-and-update, are not phase-structured in this sense and do not pause mid-pass. This workflow is generative; phases here produce intent, so every boundary gets a stop.)
+**CRITICAL ANTIGRAVITY EXECUTION RULE:** To actually stop in Antigravity, you **MUST stop calling tools** and end your turn. You cannot "simulate" a stop or blast through phases in the same turn. After presenting the output of a phase, output your text and do NOT call any further tools. Wait for the user to reply in the next turn before starting the next phase.
+
+(Carveout: command-mode skills that execute a single directed pass, like `/arrow-maintenance`'s audit-and-update, are not phase-structured in this sense and do not pause mid-pass. This workflow is generative; phases here produce intent, so every boundary gets a stop.)
+
+After completing each phase below, present the output to the user, incorporate numbered feedback, and proceed only on explicit approval. Each stop is mandatory. Skipping stops is the single most common way this workflow degrades into a rush — the discipline is non-optional.
 
 **Run a coherence pre-flight before starting or resuming implementation.** When picking up work — new session, returning to a change, cascading from an upstream change — verify that the HLD, LLDs, EARS specs, and tests are mutually coherent for the segment about to be touched:
 
@@ -44,7 +48,7 @@ Whatever you draft, verify the HLD reads **context-free**: rationale present, al
 
 See `references/hld-template.md` for standard HLD sections.
 
-**STOP for user review.**
+**STOP for user review. (End your turn entirely—do NOT call any further tools until the user replies.)**
 
 ### Phase 2 — LLD check or draft
 
@@ -64,7 +68,7 @@ After drafting or substantially revising an LLD, run an **LLD-level edge-case pr
 
 Verify the LLD reads **context-free**: the Decisions & Alternatives table has filled-out Rationale columns, alternatives considered are named, and the prose doesn't rely on assumptions only present in the conversation. A reader without your chat history should be able to follow the design.
 
-**STOP for user review.**
+**STOP for user review. (End your turn entirely—do NOT call any further tools until the user replies.)**
 
 ### Phase 3 — EARS spec draft or update
 
@@ -83,7 +87,7 @@ After drafting or revising specs, run **post-draft consistency verification**:
 
 Present a brief consistency report alongside the specs.
 
-**STOP for user review.**
+**STOP for user review. (End your turn entirely—do NOT call any further tools until the user replies.)**
 
 ### Phase 4 — Intent-narrowing edge audit
 
@@ -97,7 +101,7 @@ Distinct from the Phase 2 LLD-level probe in what it targets. Phase 2 asked "wha
 
 Ask the user to resolve these *before* tests are written. LID's fundamental purpose — narrowing the agent's output distribution to the user's latent intent — is carried by this step more than any other.
 
-**STOP for user review.**
+**STOP for user review. (End your turn entirely—do NOT call any further tools until the user replies.)**
 
 ### Phase 5 — Tests first
 
@@ -107,7 +111,7 @@ Write tests **before** the code that satisfies them, per the HLD's intent-preloa
 - Place the `@spec` annotation on the test that directly exercises the spec's behavior, not on every inner assertion.
 - Do not proceed to code until tests exist and fail in the expected way.
 
-**STOP for user review.**
+**STOP for user review. (End your turn entirely—do NOT call any further tools until the user replies.)**
 
 ### Phase 6 — Code
 
