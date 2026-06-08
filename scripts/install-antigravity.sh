@@ -26,7 +26,7 @@ if [ -d "$INSTALL_DIR" ]; then
   git pull origin main --quiet
 else
   echo "=> Cloning LID repository to $INSTALL_DIR..."
-  git clone https://github.com/jszmajda/lid "$INSTALL_DIR" --quiet
+  git clone https://github.com/PabloEckardt/lid "$INSTALL_DIR" --quiet
 fi
 
 # 2. Ensure Gemini plugins directory exists

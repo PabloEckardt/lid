@@ -13,7 +13,7 @@ if (Test-Path $InstallDir) {
     Pop-Location
 } else {
     Write-Host "=> Cloning LID repository to $InstallDir..."
-    git clone https://github.com/jszmajda/lid $InstallDir --quiet
+    git clone https://github.com/PabloEckardt/lid $InstallDir --quiet
 }
 
 # 2. Ensure Gemini plugins directory exists

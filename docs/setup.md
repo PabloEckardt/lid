@@ -139,12 +139,12 @@ Install the LID plugins using the one-line installation script. This will clone 
 
 **For Mac and Linux:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/jszmajda/lid/main/scripts/install-antigravity.sh | bash
+curl -fsSL https://raw.githubusercontent.com/PabloEckardt/lid/main/scripts/install-antigravity.sh | bash
 ```
 
 **For Windows (PowerShell):**
 ```powershell
-Invoke-RestMethod https://raw.githubusercontent.com/jszmajda/lid/main/scripts/install-antigravity.ps1 | Invoke-Expression
+Invoke-RestMethod https://raw.githubusercontent.com/PabloEckardt/lid/main/scripts/install-antigravity.ps1 | Invoke-Expression
 ```
 
 ### Alternative: Manual Installation
@@ -153,7 +153,7 @@ If you prefer not to run the automated scripts, you can manually clone the repos
 
 **For Mac and Linux:**
 ```bash
-git clone https://github.com/jszmajda/lid ~/.local/share/lid
+git clone https://github.com/PabloEckardt/lid ~/.local/share/lid
 ln -s ~/.local/share/lid/plugins/linked-intent-dev ~/.gemini/config/plugins/linked-intent-dev
 ln -s ~/.local/share/lid/plugins/arrow-maintenance ~/.gemini/config/plugins/arrow-maintenance
 ln -s ~/.local/share/lid/plugins/lid-experimental ~/.gemini/config/plugins/lid-experimental
@@ -161,7 +161,7 @@ ln -s ~/.local/share/lid/plugins/lid-experimental ~/.gemini/config/plugins/lid-e
 
 **For Windows (PowerShell):**
 ```powershell
-git clone https://github.com/jszmajda/lid "$env:LOCALAPPDATA\lid"
+git clone https://github.com/PabloEckardt/lid "$env:LOCALAPPDATA\lid"
 New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\linked-intent-dev" -Target "$env:LOCALAPPDATA\lid\plugins\linked-intent-dev"
 New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\arrow-maintenance" -Target "$env:LOCALAPPDATA\lid\plugins\arrow-maintenance"
 New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\lid-experimental" -Target "$env:LOCALAPPDATA\lid\plugins\lid-experimental"
